@@ -16,17 +16,36 @@ const products = [
 ]
 
 app.get('/apps', (req, res) => {
-    const page = req.query.page
-    const limit = req.query.limit
+    const page = parseInt(req.query.page)
+    const limit = parseInt(req.query.limit)
 
     const startIndex = (page - 1) * limit
     const endIndex = page * limit
 
-    const resultProducts = products.slice(startIndex, endIndex)
+    const apps = {}
+
+
+    if (endIndex < products.length) {
+        apps.next = {
+            page: page + 1,
+            limit: limit,
+        }
+    }
+
+
+    if (startIndex > 0) {
+        apps.previous = {
+            page: page - 1,
+            limit: limit,
+        }
+    }
+
+
+    apps.apps = products.slice(startIndex, endIndex)
 
 
 
-    res.json(resultProducts)
+    res.json(apps)
 })
 
 
