@@ -1,6 +1,17 @@
 const express = require('express');
 const app = express();
 
+//const mongoose = require('mongoose')
+
+// const MONGODB_URI = `mongodb+srv://vivi:vivi@cluster0.pa1f7.mongodb.net/mdlive?retryWrites=true&w=majority`
+// console.log('Connecting DB to ', MONGODB_URI)
+// mongoose
+//     .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then((x) => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
+//     .catch((err) => console.error('Error connecting to mongo', err));
+
+
+//commented out mongodb atlas database in case it was needed
 
 const products = [
     { id: 1, name: 'my-app-001' },
