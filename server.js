@@ -1,19 +1,7 @@
 const express = require('express');
 const app = express();
 
-//const mongoose = require('mongoose')
-
-// const MONGODB_URI = `mongodb+srv://vivi:vivi@cluster0.pa1f7.mongodb.net/mdlive?retryWrites=true&w=majority`
-// console.log('Connecting DB to ', MONGODB_URI)
-// mongoose
-//     .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//     .then((x) => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
-//     .catch((err) => console.error('Error connecting to mongo', err));
-
-
-//commented out mongodb atlas database in case it was needed
-
-const products = [
+const apps = [
     { id: 1, name: 'my-app-001' },
     { id: 2, name: 'my-app-002' },
     { id: 3, name: 'my-app-003' },
@@ -27,36 +15,36 @@ const products = [
 ]
 
 app.get('/apps', (req, res) => {
-    const page = parseInt(req.query.page)
-    const limit = parseInt(req.query.limit)
+    const start = parseInt(req.query.start)
+    const max = parseInt(req.query.max)
 
-    const startIndex = (page - 1) * limit
-    const endIndex = page * limit
+    const startIndex = (start - 1) * max
+    const endIndex = start * max
 
-    const apps = {}
+    const results = {}
 
-
-    if (endIndex < products.length) {
-        apps.next = {
-            page: page + 1,
-            limit: limit,
+    if (endIndex < apps.length) {
+        results.next = {
+            start: start - 1,
+            max: max
         }
     }
+
 
 
     if (startIndex > 0) {
-        apps.previous = {
-            page: page - 1,
-            limit: limit,
+        results.previous = {
+            start: start - 1,
+            max: max
         }
     }
 
 
-    apps.apps = products.slice(startIndex, endIndex)
+
+    results.results = apps.slice(startIndex, endIndex)
 
 
-
-    res.json(apps)
+    res.json(results)
 })
 
 
