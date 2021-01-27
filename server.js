@@ -40,4 +40,4 @@ app.get('/apps', (req, res) => {
 
 
 
-app.listen(3000, () => console.log('starting server')) 
+app.listen(process.env.PORT, () => console.log('starting server')) 
