@@ -1,1 +1,1 @@
-GET http://localhost:3000/apps?start=1&max=2
+GET http://localhost:3000/apps?range[by]=id&range[start]=1&range[end]=50&range[max]=25&range[order]=asc
