@@ -20,7 +20,7 @@ function paginate (apps, start, max) {
 
 app.get('/apps', (req, res) => {
     if (!req.query.range) {
-        return res.json(data)
+        return res.json(apps)
     }
 
     const by = req.query.range.id
