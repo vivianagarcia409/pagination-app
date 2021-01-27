@@ -40,4 +40,4 @@ app.get('/apps', (req, res) => {
 
 
 
-app.listen(3000)
+app.listen(3000, () => console.log('starting server')) 
