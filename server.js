@@ -19,6 +19,10 @@ function paginate (apps, start, max) {
 
 
 app.get('/apps', (req, res) => {
+    if (!req.query.range) {
+        return res.json(data)
+    }
+
     const by = req.query.range.id
     const start = parseInt(req.query.range.start)
     const end = parseInt(req.query.range.end)
@@ -29,12 +33,7 @@ app.get('/apps', (req, res) => {
     let data = paginate(apps, start, max)
 
 
-    res.json({
-        data,
-        start,
-        max,
-        params: req.query
-    })
+    res.json(data)
 })
 
 
