@@ -3,7 +3,7 @@
 # Process
 
 I was unfamiliar with pagination once I received the challenge, so I took it upon
-myself to find any sort of documentation and videos to figure out how to learn the technique. After some help, the solution I found was to have a function that would return the paginated results of the seeded data. A for loop was used to create the objects for the data that would be paginated. With this, if there is a request for pagination without including the range, it would result in returning the entire data.
+myself to find any sort of documentation and videos to figure out how to learn the technique to the best of my abilities. It was an interesting challenge, and I enjoyed the learning process with the allotted time I was given. After some help, the solution I found was to have a function that would return the paginated results of the seeded data. A for loop was used to create the objects for the data that would be paginated. With this, if there is a request for pagination without including the range, it would result in returning the entire data.
 
 # Requirements
 
